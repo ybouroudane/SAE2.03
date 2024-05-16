@@ -1,3 +1,18 @@
-ip address add 10.0.0.20/28 dev eth0
-ip address add 10.0.0.14/28 dev eth1
-ip route add default via 10.0.0.17
+echo 'auto lo 
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 10.0.0.20
+netmask 255.255.255.240
+gateway 10.0.0.17
+
+auto eth1 
+iface eth1 inet static
+address 10.0.0.14
+netmask 255.255.255.240
+' > /etc/network/interfaces
+
+service networking restart
+echo 'nameserver 8.8.8.8' > /etc/resolv.conf
+

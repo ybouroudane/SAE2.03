@@ -1,2 +1,15 @@
-﻿ip address add 10.0.0.1/28  dev eth0
-ip route add default via 10.0.0.14
+
+echo 'auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 10.0.0.1
+netmask 255.255.255.240
+gateway 10.0.0.14
+' > /etc/network/interfaces
+
+service networking restart
+echo 'nameserver 8.8.8.8' > /etc/resolv.conf
+cp /shared/sf_sftp.sh /root
+chmod +x /root/sf_sftp.sh

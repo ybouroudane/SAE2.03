@@ -1,2 +1,4 @@
-ip address add 172.16.200.2/23 dev eth0
-ip route add default via 172.16.201.254
+echo 'nameserver 8.8.8.8' > /etc/resolv.conf
+cp /shared/r_c_dhcp_client.sh /root
+chmod +x /root/r_c_dhcp_client.sh
+

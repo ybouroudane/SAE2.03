@@ -1,2 +1,12 @@
-ip address add 172.16.192.1/21 dev eth0
-ip route add default via 172.16.199.254
+echo 'auto lo
+iface lo inet loopback
+
+auto eth0 
+iface eth0 inet static
+address 172.16.192.1
+netmask 255.255.192.0
+gateway 172.16.199.254
+' > /etc/network/interfaces
+
+service networking restart
+echo 'nameserver 8.8.8.8' > /etc/resolv.conf
