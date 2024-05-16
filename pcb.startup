@@ -1,2 +1,2 @@
-ip address add 172.16.192.3/22 dev eth0
-ip route add default via 172.16.195.254
+ip address add 172.16.192.2/21 dev eth0
+ip route add default via 172.16.199.254
